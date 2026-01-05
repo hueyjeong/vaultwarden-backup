@@ -9,7 +9,7 @@ services:
       - ADMIN_TOKEN=${ADMIN_TOKEN}
       # SMTP Settings
       - SMTP_HOST=${SMTP_HOST}
-      - SMTP_FROM=${SMTP_USER}
+      - SMTP_FROM=${SMTP_FROM}
       - SMTP_PORT=${SMTP_PORT}
       - SMTP_SECURITY=starttls
       - SMTP_USERNAME=${SMTP_USER}
