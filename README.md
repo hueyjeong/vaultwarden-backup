@@ -15,8 +15,6 @@
 
 ## 설치 및 실행 방법
 
-상세한 설정 방법은 [walkthrough.md](walkthrough.md)를 참고하세요.
-
 ### 1. 사전 준비
 *   **Rclone Config**: 로컬에서 `gdrive1`, `gdrive2`, `gdrive3`, `gdrive4` 리모트를 설정한 `rclone.conf` 파일.
 *   **Cloudflare Tunnel Token**: Cloudflare Zero Trust 대시보드에서 발급받은 토큰.
