@@ -1,0 +1,41 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: always
+    environment:
+      - WEBSOCKET_ENABLED=true # Enable WebSocket notifications.
+      - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED:-true}
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
+    volumes:
+      - vw-data:/data
+
+  backup:
+    build: ./backup
+    container_name: vaultwarden-backup
+    restart: always
+    volumes:
+      - vw-data:/data:ro # Read-only access to Vaultwarden data
+      - ./rclone.conf:/root/.config/rclone/rclone.conf:ro # Rclone config
+    environment:
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - TO_EMAIL=${TO_EMAIL}
+      - ZIP_PASSWORD=${ZIP_PASSWORD}
+    depends_on:
+      - vaultwarden
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: vaultwarden-tunnel
+    restart: always
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    depends_on:
+      - vaultwarden
+
+volumes:
+  vw-data:

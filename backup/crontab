@@ -1,0 +1,5 @@
+# Run backup script every 6 hours
+0 */6 * * * /app/backup.sh
+
+# Run report script every day at 12:00 PM
+0 12 * * * /app/report.sh

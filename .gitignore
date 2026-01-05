@@ -1,0 +1,27 @@
+# Environment Variables
+.env
+
+# Rclone Configuration
+rclone.conf
+
+# Docker Volumes/Data (if mapped locally)
+vw-data/
+data/
+
+# SQLite Databases (if distinct from data folder)
+*.sqlite3
+*.db
+*.db-*
+
+# Logs
+*.log
+backup/backup.log
+backup/report.log
+
+# Temporary Backup Files
+*.zip
+*.tar.gz
+
+# System Files
+.DS_Store
+Thumbs.db
