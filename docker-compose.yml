@@ -7,6 +7,13 @@ services:
       - WEBSOCKET_ENABLED=true # Enable WebSocket notifications.
       - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED:-true}
       - ADMIN_TOKEN=${ADMIN_TOKEN}
+      # SMTP Settings
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_FROM=${SMTP_USER}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_SECURITY=starttls
+      - SMTP_USERNAME=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASS}
     volumes:
       - vw-data:/data
 
