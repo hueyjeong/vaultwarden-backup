@@ -3,6 +3,7 @@
 
 # Rclone Configuration
 rclone.conf
+rclone_config/
 
 # Docker Volumes/Data (if mapped locally)
 vw-data/

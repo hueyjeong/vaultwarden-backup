@@ -30,7 +30,7 @@
     # ADMIN_TOKEN, TUNNEL_TOKEN, SMTP_* 정보 입력
     ```
 2.  `rclone.conf` 파일 위치:
-    *   프로젝트 루트(`docker-compose.yml`과 같은 위치)에 `rclone.conf` 파일을 복사해 둡니다.
+    *   프로젝트 루트에 `rclone_config` 폴더를 만들고, 그 안에 `rclone.conf` 파일을 넣습니다.
 
 ### 3. 실행
 ```bash
@@ -45,10 +45,11 @@ docker-compose up -d --build
 │   ├── backup.sh    # 백업 로직 스크립트
 │   ├── report.sh    # 이메일 리포팅 스크립트
 │   └── crontab      # 스케줄러 설정
+├── rclone_config/
+│   └── rclone.conf  # (생성 필요) Rclone 설정 파일
 ├── docker-compose.yml
 ├── env.template     # 환경 변수 템플릿
 ├── .env             # (생성 필요) 실제 환경 변수
-├── rclone.conf      # (생성 필요) Rclone 설정 파일
 └── README.md
 ```
 

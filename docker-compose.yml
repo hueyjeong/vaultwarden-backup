@@ -23,7 +23,7 @@ services:
     restart: always
     volumes:
       - vw-data:/data:ro # Read-only access to Vaultwarden data
-      - ./rclone.conf:/root/.config/rclone/rclone.conf:ro # Rclone config
+      - ./rclone_config:/root/.config/rclone # Rclone config directory (RW)
     environment:
       - SMTP_HOST=${SMTP_HOST}
       - SMTP_PORT=${SMTP_PORT:-587}
